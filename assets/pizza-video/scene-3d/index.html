@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171714">
+  <title>FARO — вкус начинается с огня</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../vendor/gsap.min.js"></script>
+  <script defer src="../vendor/ScrollTrigger.min.js"></script>
+  <script type="module" src="pizza-scene.js"></script>
+</head>
+<body>
+  <a class="skip" href="#story-end">Перейти к описанию</a>
+  <main>
+    <section id="journey" aria-label="Облёт пиццы при прокрутке">
+      <div id="stage">
+        <canvas id="pizza-canvas" role="img" aria-label="Объёмная пицца с прошутто и рукколой. Прокрутите, чтобы рассмотреть её с другой стороны."></canvas>
+        <div class="vignette" aria-hidden="true"></div>
+        <header>
+          <a class="wordmark" href="./" aria-label="Faro — в начало">FARO<span>CUCINA DI FUOCO</span></a>
+          <span class="header-note">Огонь. Время. Настоящий вкус.</span>
+          <button id="play-tour" class="tour" type="button" disabled><span>Смотреть пролёт</span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 1 7 5-7 5Z" fill="currentColor"/></svg></button>
+        </header>
+        <div class="intro">
+          <p class="eyebrow">PIZZA, CON AMORE.</p>
+          <h1>Сначала<br>почувствуй<br><em>вкус.</em></h1>
+          <p class="intro-description">Тонкое тесто, жар печи<br>и ничего лишнего.</p>
+        </div>
+        <div class="stage-bottom">
+          <div class="scroll-hint"><span class="line" aria-hidden="true"></span><span>Листай. Смотри. Чувствуй.</span></div>
+          <span class="edition">ПРОШУТТО · РУККОЛА</span>
+        </div>
+        <div class="progress" aria-hidden="true"><span></span></div>
+        <div id="loader" role="status"><span>Разогреваем печь</span><div class="loading-line"><i></i></div></div>
+        <div id="error" role="alert" hidden><h2>Не удалось открыть сцену</h2><p>Обновите страницу в браузере с поддержкой WebGL 2.</p><button type="button" onclick="location.reload()">Попробовать снова</button></div>
+      </div>
+    </section>
+    <section id="story-end">
+      <p class="eyebrow">СДЕЛАНО СО ВКУСОМ.</p>
+      <h2>Меньше лишнего.<br><em>Больше настоящего.</em></h2>
+      <p>Прошутто, свежая руккола и золотистый бортик.<br>Каждая деталь заслуживает внимания.</p>
+      <button id="replay" class="replay" type="button">Ещё один взгляд <span aria-hidden="true">↗</span></button>
+    </section>
+  </main>
+  <footer><span>FARO — демонстрационный концепт</span><small>3D-модель <a href="https://sketchfab.com/3d-models/pizza-40d50989fec1460f8838b608d999ccd0">Pizza</a> — <a href="https://sketchfab.com/rigsters">Rigsters</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Модель и текстура изменены.</small></footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "desktop": {
+    "diagnostics": {
+      "contextLost": false,
+      "dpr": 1,
+      "drawCalls": 3,
+      "frameMedianMs": 16.7,
+      "frameP95Ms": 18.3,
+      "frames": 868,
+      "geometryCount": 3,
+      "height": 900,
+      "intervalSamples": 857,
+      "modelBytes": 10502924,
+      "orbitDegrees": 200,
+      "progress": 1,
+      "ready": true,
+      "renderMedianMs": 0.4,
+      "renderP95Ms": 1.2,
+      "textureCount": 6,
+      "triangles": 49968,
+      "width": 1425
+    },
+    "overflow": false,
+    "viewport": {
+      "height": 900,
+      "width": 1440
+    }
+  },
+  "mobile": {
+    "diagnostics": {
+      "contextLost": false,
+      "dpr": 1,
+      "drawCalls": 3,
+      "frameMedianMs": 17.3,
+      "frameP95Ms": 18.1,
+      "frames": 383,
+      "geometryCount": 3,
+      "height": 844,
+      "intervalSamples": 370,
+      "modelBytes": 10502924,
+      "orbitDegrees": 200,
+      "progress": 1,
+      "ready": true,
+      "renderMedianMs": 0.3,
+      "renderP95Ms": 0.5,
+      "textureCount": 6,
+      "triangles": 49968,
+      "width": 375
+    },
+    "overflow": false,
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  },
+  "notes": "Viewport emulation in Codex browser; frame interval measurements, not GPU timings or physical phone measurements."
+}
