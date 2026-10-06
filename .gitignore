@@ -2,7 +2,7 @@
 __pycache__/
 node_modules/
 
-# Keep the current 3D prototype; earlier video experiments stay local.
+# Keep the current presentation website; earlier video experiments stay local.
 assets/pizza/
 assets/pizza-video/*
 !assets/pizza-video/scene-3d/
@@ -10,4 +10,6 @@ assets/pizza-video/*
 !assets/pizza-video/vendor-build/
 assets/pizza-video/scene-3d/*-proof.png
 assets/pizza-video/scene-3d/*.blend1
+assets/pizza-video/scene-3d/fonts/*.ttf
+.impeccable/review/
 *.log

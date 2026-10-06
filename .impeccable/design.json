@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T15:59:11.393Z",
+  "title": "Design System: FARO",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Charcoal ink",
+        "tonalRamp": [
+          "oklch(15% 0.0100 125.01)",
+          "oklch(26% 0.0100 125.01)",
+          "oklch(38% 0.0100 125.01)",
+          "oklch(49% 0.0100 125.01)",
+          "oklch(61% 0.0100 125.01)",
+          "oklch(72% 0.0100 125.01)",
+          "oklch(84% 0.0100 125.01)",
+          "oklch(95% 0.0100 125.01)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm paper",
+        "tonalRamp": [
+          "oklch(15% 0.0152 90.24)",
+          "oklch(26% 0.0152 90.24)",
+          "oklch(38% 0.0152 90.24)",
+          "oklch(49% 0.0152 90.24)",
+          "oklch(61% 0.0152 90.24)",
+          "oklch(72% 0.0152 90.24)",
+          "oklch(84% 0.0152 90.24)",
+          "oklch(95% 0.0152 90.24)"
+        ]
+      },
+      "tomato": {
+        "role": "primary",
+        "displayName": "Tomato",
+        "tonalRamp": [
+          "oklch(15% 0.1661 36.29)",
+          "oklch(26% 0.1661 36.29)",
+          "oklch(38% 0.1661 36.29)",
+          "oklch(49% 0.1661 36.29)",
+          "oklch(61% 0.1661 36.29)",
+          "oklch(72% 0.1661 36.29)",
+          "oklch(84% 0.1661 36.29)",
+          "oklch(95% 0.1661 36.29)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Warm muted",
+        "tonalRamp": [
+          "oklch(15% 0.0182 96.15)",
+          "oklch(26% 0.0182 96.15)",
+          "oklch(38% 0.0182 96.15)",
+          "oklch(49% 0.0182 96.15)",
+          "oklch(61% 0.0182 96.15)",
+          "oklch(72% 0.0182 96.15)",
+          "oklch(84% 0.0182 96.15)",
+          "oklch(95% 0.0182 96.15)"
+        ]
+      },
+      "tomato-on-paper": {
+        "role": "primary",
+        "displayName": "Tomato on paper",
+        "tonalRamp": [
+          "oklch(15% 0.1468 34.06)",
+          "oklch(26% 0.1468 34.06)",
+          "oklch(38% 0.1468 34.06)",
+          "oklch(49% 0.1468 34.06)",
+          "oklch(61% 0.1468 34.06)",
+          "oklch(72% 0.1468 34.06)",
+          "oklch(84% 0.1468 34.06)",
+          "oklch(95% 0.1468 34.06)"
+        ]
+      },
+      "inset-paper": {
+        "role": "neutral",
+        "displayName": "Inset paper",
+        "tonalRamp": [
+          "oklch(15% 0.0175 103.17)",
+          "oklch(26% 0.0175 103.17)",
+          "oklch(38% 0.0175 103.17)",
+          "oklch(49% 0.0175 103.17)",
+          "oklch(61% 0.0175 103.17)",
+          "oklch(72% 0.0175 103.17)",
+          "oklch(84% 0.0175 103.17)",
+          "oklch(95% 0.0175 103.17)"
+        ]
+      },
+      "action-hover": {
+        "role": "neutral",
+        "displayName": "Action hover",
+        "tonalRamp": [
+          "oklch(15% 0.0261 125.39)",
+          "oklch(26% 0.0261 125.39)",
+          "oklch(38% 0.0261 125.39)",
+          "oklch(49% 0.0261 125.39)",
+          "oklch(61% 0.0261 125.39)",
+          "oklch(72% 0.0261 125.39)",
+          "oklch(84% 0.0261 125.39)",
+          "oklch(95% 0.0261 125.39)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Scene display",
+        "purpose": "Three-line introduction; Literata roman with an italic tomato finish."
+      },
+      "scene-headline": {
+        "displayName": "Scene headline",
+        "purpose": "Crust, ingredients and close passages, revealed through clipped lines."
+      },
+      "menu-headline": {
+        "displayName": "Menu headline",
+        "purpose": "Large statement on the tomato field."
+      },
+      "about-headline": {
+        "displayName": "Paper story headline",
+        "purpose": "Company-and-table statement with darker tomato emphasis."
+      },
+      "closing-headline": {
+        "displayName": "Closing headline",
+        "purpose": "Final invitation on charcoal."
+      },
+      "title": {
+        "displayName": "Food title",
+        "purpose": "Menu dish names; closely related basket titles share the family and weight."
+      },
+      "dialog-title": {
+        "displayName": "Basket heading",
+        "purpose": "Compact title of the native modal drawer."
+      },
+      "body": {
+        "displayName": "Story body",
+        "purpose": "Paper-section prose, kept within a 40-character measure."
+      },
+      "scene-body": {
+        "displayName": "Scene body",
+        "purpose": "Supporting copy on charcoal, within a 38-character desktop measure."
+      },
+      "menu-body": {
+        "displayName": "Menu body",
+        "purpose": "Compact ingredient lists in open rows."
+      },
+      "label": {
+        "displayName": "Control label",
+        "purpose": "Navigation, actions and filter labels."
+      },
+      "caption": {
+        "displayName": "Quiet caption",
+        "purpose": "Scene annotations, demo notes, replay and credits."
+      },
+      "wordmark": {
+        "displayName": "FARO wordmark",
+        "purpose": "Heavy incumbent Golos lettering in header and footer."
+      },
+      "wordmark-tagline": {
+        "displayName": "Wordmark tagline",
+        "purpose": "CUCINA DI FUOCO brand subline; hidden in the narrow header."
+      }
+    },
+    "shadows": [
+      {
+        "name": "basket-drawer",
+        "value": "-18px 0 60px #00000033",
+        "purpose": "The sole CSS surface shadow; separates the paper native-modal drawer."
+      },
+      {
+        "name": "modal-backdrop",
+        "value": "#10130fcc",
+        "purpose": "Backdrop colour of the native dialog, without blur."
+      },
+      {
+        "name": "pizza-contact",
+        "value": "256×256 radial black texture: rgba(0,0,0,.9) at 0; rgba(0,0,0,.65) at .65; transparent at 1",
+        "purpose": "Scene-only contact shadow on a 7.6×7.6 plane beneath the model; not a UI elevation token."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": ".2s",
+        "purpose": "Menu add colour/scale, quantity hover, navigation underline and save hover."
+      },
+      {
+        "name": "link-gap",
+        "value": ".25s / .3s",
+        "purpose": "Menu/story action gaps and closing-action gap, respectively."
+      },
+      {
+        "name": "basket-entrance",
+        "value": ".45s power4.out; xPercent: 100 → 0",
+        "purpose": "Horizontal entrance of the native modal; skipped with reduced motion."
+      },
+      {
+        "name": "added-feedback",
+        "value": "750ms; count .35s power3.out",
+        "purpose": "Temporary filled add state and count scale feedback (1.18 → 1)."
+      },
+      {
+        "name": "filter-rows",
+        "value": ".3s power3.out; stagger .03s; opacity .45 → 1; y 8 → 0",
+        "purpose": "Dietary-filter changes; skipped with reduced motion."
+      },
+      {
+        "name": "scene-scrub",
+        "value": ".35s; 13-unit timeline",
+        "purpose": "Scroll-linked progress under native scrolling across the 700svh journey."
+      },
+      {
+        "name": "camera-orbit",
+        "value": "200°; progress 0 → .28 → .66 → 1; power2.inOut",
+        "purpose": "One physical model and one camera; movements at 1.1–3.1, 4.8–7.1 and 8.9–11.15. Interior holds at 3.1–4.8 and 7.1–8.9."
+      },
+      {
+        "name": "clipped-line-entrance",
+        "value": ".65s power4.out; stagger .08s; yPercent 105 → 0",
+        "purpose": "Scene text lines rise through clipped containers during camera holds."
+      },
+      {
+        "name": "supporting-copy-entrance",
+        "value": ".5s power2.out; stagger .05s; y 12 → 0",
+        "purpose": "Paragraph/action entrances .3 timeline units after the headline entrance."
+      },
+      {
+        "name": "floor-focus",
+        "value": ".7s power2.out; shader strength .045",
+        "purpose": "Fine-pointer table highlight with no pizza movement; disabled/reset below 700px or with reduced motion, re-enabled on desktop resize."
+      },
+      {
+        "name": "optional-tour",
+        "value": "20s maximum; minimum remaining duration 3s; ease none",
+        "purpose": "Optional scroll playback; wheel/touch/keyboard and a hidden document cancel it."
+      },
+      {
+        "name": "reduced-motion",
+        "value": ".01ms CSS animation/transition durations; 100svh static scene",
+        "purpose": "Static intro view and ordinary page scrolling; no story playback/progress, pointer floor response, animated basket or filter rows."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-desktop",
+        "value": "max-width: 1050px"
+      },
+      {
+        "name": "narrow-css",
+        "value": "max-width: 700px"
+      },
+      {
+        "name": "narrow-scene",
+        "value": "stage width < 700px"
+      },
+      {
+        "name": "narrow-and-short",
+        "value": "max-width: 700px and max-height: 730px"
+      },
+      {
+        "name": "pointer-floor-capability",
+        "value": "(pointer: fine) and (prefers-reduced-motion: no-preference)"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Underlined menu action",
+      "kind": "button",
+      "refersTo": "link-action",
+      "description": "Open text-and-arrow action used on scene and paper fields. The snippet inherits the host text colour.",
+      "html": "<a class=\"ds-link-action\" href=\"#menu\">Открыть меню <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></svg></a>",
+      "css": ".ds-link-action{display:inline-flex;align-items:center;justify-content:space-between;gap:40px;min-height:48px;font-family:var(--sans,Golos,Arial,sans-serif);font-size:14px;color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding:10px 0;transition:gap .25s}.ds-link-action:hover{gap:50px}.ds-link-action:focus-visible{outline:2px solid currentColor;outline-offset:5px}.ds-link-action svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}.ds-link-action svg{width:22px;height:22px}@media(prefers-reduced-motion:reduce){.ds-link-action{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Circular add control",
+      "kind": "button",
+      "refersTo": "add-button",
+      "description": "Menu add action: outlined at rest, filled on hover or the 750ms added state, and smaller on press. Mobile size is 44px.",
+      "html": "<button class=\"ds-add\" type=\"button\" aria-label=\"Добавить Прошутто в заказ\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 4v16M4 12h16\"/></svg></button>",
+      "css": ".ds-add{width:48px;height:48px;display:grid;place-items:center;border:1px solid #191b1680;border-radius:50%;background:none;color:var(--ink,#191b16);cursor:pointer;transition:background .2s,color .2s,transform .2s}.ds-add:hover,.ds-add.ds-added{background:var(--ink,#191b16);color:var(--paper,#f1ede2)}.ds-add:active{transform:scale(.93)}.ds-add:focus-visible{outline:2px solid currentColor;outline-offset:5px}.ds-add svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}@media(max-width:700px){.ds-add{width:44px;height:44px}}@media(prefers-reduced-motion:reduce){.ds-add{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Signature add action",
+      "kind": "button",
+      "refersTo": "signature-add",
+      "description": "Unboxed text-plus action next to the featured pizza caption; focus supplies the visible keyboard state.",
+      "html": "<button class=\"ds-signature-add\" type=\"button\" aria-label=\"Добавить Прошутто в заказ\">Попробовать <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 4v16M4 12h16\"/></svg></button>",
+      "css": ".ds-signature-add{display:flex;align-items:center;gap:16px;min-height:48px;padding:8px 0 8px 16px;border:0;background:none;color:var(--ink,#191b16);font-family:var(--sans,Golos,Arial,sans-serif);font-size:14px;cursor:pointer}.ds-signature-add:focus-visible{outline:2px solid currentColor;outline-offset:5px}.ds-signature-add svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}.ds-signature-add svg{width:22px;height:22px}@media(max-width:1050px){.ds-signature-add{font-size:12px;gap:8px}}@media(max-width:700px){.ds-signature-add{font-size:13px;gap:12px}}"
+    },
+    {
+      "name": "Save local selection",
+      "kind": "button",
+      "refersTo": "save-selection",
+      "description": "Full-width drawer action that exports an illustrative basket to TXT. It implies neither payment nor order transmission.",
+      "html": "<button class=\"ds-save\" type=\"button\">Сохранить мой выбор <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5\"/></svg></button>",
+      "css": ".ds-save{display:flex;align-items:center;justify-content:space-between;width:100%;border:0;border-radius:0;background:var(--ink,#191b16);color:var(--paper,#f1ede2);padding:18px 22px;min-height:58px;font-family:var(--sans,Golos,Arial,sans-serif);font-size:14px;cursor:pointer;transition:background .2s}.ds-save:hover{background:#3c4233}.ds-save:disabled{opacity:.45;cursor:wait}.ds-save:focus-visible{outline:2px solid currentColor;outline-offset:5px}.ds-save svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}@media(prefers-reduced-motion:reduce){.ds-save{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Underlined dietary filters",
+      "kind": "chip",
+      "refersTo": "menu-filter",
+      "description": "Text filters, not pill chips: the selected state is a current-colour underline and aria-pressed.",
+      "html": "<div class=\"ds-filters\" role=\"group\" aria-label=\"Фильтр меню\"><button type=\"button\" aria-pressed=\"true\">Все пиццы</button><button type=\"button\" aria-pressed=\"false\">С мясом</button><button type=\"button\" aria-pressed=\"false\">Без мяса</button></div>",
+      "css": ".ds-filters{display:flex;gap:24px;padding:0 0 20px;border-bottom:1px solid #191b1666;color:var(--ink,#191b16);font-family:var(--sans,Golos,Arial,sans-serif)}.ds-filters button{background:none;border:0;color:inherit;padding:8px 0;font:inherit;font-size:14px;min-height:44px;position:relative;cursor:pointer}.ds-filters button[aria-pressed=true]::after{content:'';height:2px;background:currentColor;position:absolute;left:0;right:0;bottom:0}.ds-filters button:focus-visible{outline:2px solid currentColor;outline-offset:5px}@media(max-width:700px){.ds-filters{padding-bottom:12px}.ds-filters button{font-size:13px}}"
+    },
+    {
+      "name": "Compact FARO navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Narrow header variant: FARO, menu and circular basket count. Desktop additionally displays the tagline and two section links.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#top\" aria-label=\"FARO — в начало\">FARO</a><nav aria-label=\"Главная навигация\"><a href=\"#menu\">Меню</a></nav><button class=\"ds-cart-open\" type=\"button\" aria-haspopup=\"dialog\" aria-label=\"Ваш заказ: 0\"><span>0</span></button></header>",
+      "css": ".ds-nav{height:83px;padding:22px var(--gutter,24px);display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--ink,#191b16);color:var(--paper,#f1ede2);font-family:var(--sans,Golos,Arial,sans-serif)}.ds-wordmark{font-size:30px;font-weight:850;letter-spacing:-.03em;line-height:.82;text-decoration:none;color:inherit}.ds-nav nav{margin-left:auto;display:flex;align-items:center}.ds-nav nav a{font-size:13px;color:inherit;text-decoration:none;padding:12px 0;border-bottom:1px solid transparent;transition:border-color .2s}.ds-nav nav a:hover{border-color:var(--tomato,#e66744)}.ds-cart-open{border:0;background:none;padding:5px;min-width:44px;min-height:46px;color:inherit;cursor:pointer;display:flex;align-items:center}.ds-cart-open span{display:grid;place-items:center;width:32px;height:32px;border:1px solid #888a7a;border-radius:50%;font-size:13px;font-variant-numeric:tabular-nums}.ds-cart-open.ds-has-items span{background:var(--tomato,#e66744);border-color:var(--tomato,#e66744);color:var(--ink,#191b16)}.ds-nav a:focus-visible,.ds-nav button:focus-visible{outline:2px solid currentColor;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-nav nav a{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Basket quantity controls",
+      "kind": "custom",
+      "refersTo": "quantity-button",
+      "description": "Circular decrease/increase controls with tabular quantity and an underlined remove action. The actual basket caps each dish at 99.",
+      "html": "<div class=\"ds-quantity\"><button type=\"button\" aria-label=\"Уменьшить количество: Прошутто\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h16\"/></svg></button><output aria-label=\"Количество: Прошутто\">1</output><button type=\"button\" aria-label=\"Увеличить количество: Прошутто\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 4v16M4 12h16\"/></svg></button><button class=\"ds-remove\" type=\"button\" aria-label=\"Удалить Прошутто из заказа\">Убрать</button></div>",
+      "css": ".ds-quantity{display:flex;align-items:center;gap:16px;color:var(--ink,#191b16);font-family:var(--sans,Golos,Arial,sans-serif)}.ds-quantity button{width:44px;height:44px;border:1px solid #191b1655;background:none;color:inherit;display:grid;place-items:center;border-radius:50%;cursor:pointer;transition:background .2s}.ds-quantity button:hover{background:#deddd0}.ds-quantity button:disabled{opacity:.45;cursor:wait}.ds-quantity output{min-width:24px;text-align:center;font-size:15px;font-variant-numeric:tabular-nums}.ds-quantity .ds-remove{font-size:12px;border:0;background:none;padding:8px 0;margin-left:auto;text-decoration:underline;text-underline-offset:4px;min-height:44px;width:auto;border-radius:0}.ds-quantity button:focus-visible{outline:2px solid currentColor;outline-offset:5px}.ds-quantity svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}.ds-quantity svg{width:18px;height:18px}@media(prefers-reduced-motion:reduce){.ds-quantity button{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Open menu row",
+      "kind": "custom",
+      "refersTo": "menu-row",
+      "description": "The menu's structural pattern: serif food name, ingredient measure, tabular price and a circular add action. This is an open row, not a card.",
+      "html": "<div class=\"ds-row\"><div><h3>Прошутто</h3><p>Прошутто, руккола, моцарелла,<br>шампиньоны, томатный соус</p></div><span class=\"ds-price\">890 ₽</span><button class=\"ds-row-add\" type=\"button\" aria-label=\"Добавить Прошутто в заказ\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 4v16M4 12h16\"/></svg></button></div>",
+      "css": ".ds-row{display:grid;grid-template-columns:1fr auto 48px;align-items:center;gap:24px;padding:25px 0;border-bottom:1px solid #191b164d;background:var(--tomato,#e66744);color:var(--ink,#191b16);font-family:var(--sans,Golos,Arial,sans-serif)}.ds-row h3{margin:0 0 12px;font-family:var(--serif,Literata,Georgia,serif);font-size:25px;font-weight:500;letter-spacing:-.02em;line-height:1.15}.ds-row p{margin:0;font-size:14px;line-height:1.55}.ds-price{font-size:17px;white-space:nowrap;font-variant-numeric:tabular-nums}.ds-row-add{width:48px;height:48px;display:grid;place-items:center;border:1px solid #191b1680;border-radius:50%;background:none;color:inherit;cursor:pointer;transition:background .2s,color .2s,transform .2s}.ds-row-add:hover,.ds-row-add.ds-added{color:var(--paper,#f1ede2);background:var(--ink,#191b16)}.ds-row-add:active{transform:scale(.93)}.ds-row-add:focus-visible{outline:2px solid currentColor;outline-offset:5px}.ds-row svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}@media(max-width:1050px){.ds-row{gap:15px}.ds-row h3{font-size:23px}}@media(max-width:700px){.ds-row{grid-template-columns:1fr auto 44px;gap:12px;padding:24px 0}.ds-price{font-size:15px}.ds-row-add{width:44px;height:44px}}@media(prefers-reduced-motion:reduce){.ds-row-add{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Paper basket panel",
+      "kind": "custom",
+      "refersTo": "cart-panel",
+      "description": "Visual drawer specimen with fixed header/summary and scrollable items. The live version is a native modal with focus restoration, live feedback and .45s horizontal entrance.",
+      "html": "<div class=\"ds-panel\"><div class=\"ds-panel-head\"><h2>Ваш заказ</h2><button type=\"button\" aria-label=\"Закрыть заказ\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m5 5 14 14M19 5 5 19\"/></svg></button></div><div class=\"ds-panel-body\"><div class=\"ds-panel-item\"><h3>Прошутто</h3><span>890 ₽</span></div></div><div class=\"ds-panel-summary\"><div><span>Итого</span><strong>890 ₽</strong></div><button class=\"ds-panel-save\" type=\"button\">Сохранить мой выбор <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5\"/></svg></button><p>Демозаказ: без оплаты и отправки в пиццерию.</p></div></div>",
+      "css": ".ds-panel{display:flex;flex-direction:column;width:min(520px,100%);height:100%;overflow:hidden;background:var(--paper,#f1ede2);color:var(--ink,#191b16);box-shadow:-18px 0 60px #00000033;font-family:var(--sans,Golos,Arial,sans-serif)}.ds-panel-head{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;border-bottom:1px solid #191b1633}.ds-panel-head h2{margin:0;font-family:var(--serif,Literata,Georgia,serif);font-size:35px;font-weight:450;letter-spacing:-.035em;line-height:1.08}.ds-panel-head button{display:grid;place-items:center;width:48px;height:48px;background:none;border:0;color:inherit;cursor:pointer}.ds-panel-body{padding:0 32px;overflow-y:auto;flex:1;min-height:0}.ds-panel-item{display:flex;align-items:start;justify-content:space-between;gap:16px;padding:24px 0;border-bottom:1px solid #191b1633}.ds-panel-item h3{margin:0;font-family:var(--serif,Literata,Georgia,serif);font-size:25px;font-weight:500}.ds-panel-item span{font-size:16px;white-space:nowrap;font-variant-numeric:tabular-nums}.ds-panel-summary{padding:24px 32px 28px;border-top:1px solid #191b1633}.ds-panel-summary>div{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:22px;font-size:16px}.ds-panel-summary strong{font-size:28px;font-weight:500;font-variant-numeric:tabular-nums}.ds-panel-save{display:flex;align-items:center;justify-content:space-between;width:100%;border:0;background:var(--ink,#191b16);color:var(--paper,#f1ede2);padding:18px 22px;min-height:58px;font:inherit;font-size:14px;cursor:pointer;transition:background .2s}.ds-panel-save:hover{background:#3c4233}.ds-panel-summary p{margin:14px 0 0;font-size:12px;line-height:1.5}.ds-panel button:focus-visible{outline:2px solid currentColor;outline-offset:5px}.ds-panel svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}@media(max-width:700px){.ds-panel-head{padding:24px}.ds-panel-head h2{font-size:32px}.ds-panel-body{padding:0 24px}.ds-panel-summary{padding:22px 24px}.ds-panel-item h3{font-size:24px}.ds-panel-item span{font-size:15px}}@media(prefers-reduced-motion:reduce){.ds-panel-save{transition-duration:.01ms!important}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "FARO's shared table",
+    "overview": "FARO presents food as the centre of an evening together. Its established world combines a charcoal stage, warm paper, a tomato field, large literary headings and compact practical controls. The tone is warm and direct; space around the food and text supplies the confidence.\n\nThe built surface uses generous asymmetry, open menu rows and a single physical pizza model. Motion approaches and orbits that model, pausing for text. Below the scene, flat colour fields and a locally rendered still carry the same identity. This is the documented incumbent system, extracted from the finished presentation rather than a replacement direction.",
+    "keyCharacteristics": [
+      "Large Literata headings with italic emphasis; Golos for useful details and controls.",
+      "Charcoal, warm paper and tomato surfaces with context-specific text contrast.",
+      "Sharp containers, thin rules and circular icon controls.",
+      "Real camera movement, two interior reading holds and clipped text entrances.",
+      "An explicitly fictional menu and a local demonstration basket."
+    ],
+    "rules": [
+      {
+        "name": "The Field Contrast Rule",
+        "body": "Use warm paper and warm muted on charcoal; use charcoal on tomato and paper. Paper emphasis uses the darker tomato variant. Keep the scene's protective vignettes where food passes beneath text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tomato Field Rule",
+        "body": "Tomato can occupy a complete menu field. In dark sections it marks emphasis, progress and selected count; it is not restricted to a tiny accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Literata speaks in headings and food names. Golos handles navigation, explanation and actions. Italic emphasis stays within Literata.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Keep menu rows and story surfaces flat. Reserve interface elevation for the modal basket; let the food supply the visual depth.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** retain the charcoal, warm paper and tomato field roles, using darker tomato emphasis on paper.",
+      "**Do** pair Literata statements and dish names with Golos explanation, navigation and controls.",
+      "**Do** preserve open rows, thin rules, sharp surfaces and circular compact icon controls.",
+      "**Do** keep copy readable throughout camera movement and both interior holds, including narrow and short viewports.",
+      "**Do** support ordinary scrolling, keyboard access, visible focus, local still fallback and reduced motion.",
+      "**Do** preserve licensed asset attribution, font notices, embedded raster provenance and original source photographs.",
+      "**Do** identify the fictional menu, authored example prices and local basket export honestly."
+    ],
+    "donts": [
+      "**Don't** replace the continuous camera approach and orbit with image swaps, crossfades or cuts.",
+      "**Don't** introduce section kickers, repeated icon cards, decorative glass or fabricated social proof into this established world.",
+      "**Don't** add real payment, order transmission, business claims or contact details without real product support.",
+      "**Don't** treat the restored texture as a new high-resolution scan or local frame measurements as a physical-device performance guarantee.",
+      "**Don't** make pointer-following background light active on narrow screens or under reduced motion."
+    ]
+  }
+}

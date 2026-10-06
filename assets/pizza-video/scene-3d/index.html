@@ -3,46 +3,80 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#171714">
-  <title>FARO — вкус начинается с огня</title>
+  <meta name="theme-color" content="#191b16">
+  <meta name="description" content="FARO — пицца, которую хочется разделить. Рассмотрите её со всех сторон и выберите свою из меню.">
+  <title>FARO — пицца и планы на вечер</title>
+  <link rel="preload" href="fonts/GolosText%5Bwght%5D.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Literata%5Bopsz,wght%5D.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script defer src="../vendor/gsap.min.js"></script>
   <script defer src="../vendor/ScrollTrigger.min.js"></script>
+  <script defer src="site.js"></script>
   <script type="module" src="pizza-scene.js"></script>
 </head>
-<body>
-  <a class="skip" href="#story-end">Перейти к описанию</a>
+<body id="top">
+  <a class="skip" href="#menu">Перейти к меню</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="FARO — в начало">FARO<span>CUCINA DI FUOCO</span></a>
+    <nav aria-label="Главная навигация"><a href="#top" class="desktop-link">Пицца</a><a href="#menu">Меню</a><a href="#about" class="desktop-link">О FARO</a></nav>
+    <button class="cart-open" type="button" aria-haspopup="dialog" aria-controls="cart-dialog">Ваш заказ <span id="cart-count">0</span></button>
+  </header>
   <main>
-    <section id="journey" aria-label="Облёт пиццы при прокрутке">
+    <section id="journey" aria-label="История пиццы">
       <div id="stage">
-        <canvas id="pizza-canvas" role="img" aria-label="Объёмная пицца с прошутто и рукколой. Прокрутите, чтобы рассмотреть её с другой стороны."></canvas>
+        <img class="scene-poster" src="media/pizza-studio.png" alt="" width="1600" height="1600" aria-hidden="true">
+        <canvas id="pizza-canvas" role="img" aria-label="Пицца с прошутто и рукколой. Камера приближается и облетает её при прокрутке."></canvas>
         <div class="vignette" aria-hidden="true"></div>
-        <header>
-          <a class="wordmark" href="./" aria-label="Faro — в начало">FARO<span>CUCINA DI FUOCO</span></a>
-          <span class="header-note">Огонь. Время. Настоящий вкус.</span>
-          <button id="play-tour" class="tour" type="button" disabled><span>Смотреть пролёт</span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 1 7 5-7 5Z" fill="currentColor"/></svg></button>
-        </header>
-        <div class="intro">
-          <p class="eyebrow">PIZZA, CON AMORE.</p>
-          <h1>Сначала<br>почувствуй<br><em>вкус.</em></h1>
-          <p class="intro-description">Тонкое тесто, жар печи<br>и ничего лишнего.</p>
+        <div class="scene-copy intro">
+          <h1><span class="text-line"><span>Пицца.</span></span><span class="text-line"><span>И планы</span></span><span class="text-line"><span><em>на вечер.</em></span></span></h1>
+          <p>Горячая пицца в центре стола.<br>Остальное сложится само.</p>
+          <a class="text-link" href="#menu">Открыть меню <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="scene-copy story-copy" id="crust-copy">
+          <h2><span class="text-line"><span>Всё начинается</span></span><span class="text-line"><span><em>с края.</em></span></span></h2>
+          <p>Поджаристый бортик.<br>Тонкая середина.<br>Хочется доесть до последней крошки.</p>
+        </div>
+        <div class="scene-copy story-copy" id="ingredients-copy">
+          <h2><span class="text-line"><span>Прошутто.</span></span><span class="text-line"><span>Руккола.</span></span><span class="text-line"><span><em>Ещё кусочек.</em></span></span></h2>
+          <p>Солоноватое прошутто, свежая зелень<br>и расплавленная моцарелла.</p>
+        </div>
+        <div class="scene-copy story-copy" id="closer-copy">
+          <h2><span class="text-line"><span>Ну что,</span></span><span class="text-line"><span><em>по пицце?</em></span></span></h2>
+          <p>Свою уже нашли?<br>В меню есть ещё несколько хороших идей.</p>
+          <a class="text-link" href="#menu">Выбрать пиццу <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7"/></svg></a>
         </div>
         <div class="stage-bottom">
-          <div class="scroll-hint"><span class="line" aria-hidden="true"></span><span>Листай. Смотри. Чувствуй.</span></div>
-          <span class="edition">ПРОШУТТО · РУККОЛА</span>
+          <button id="play-tour" class="play-tour" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7Z"/></svg><span>Смотреть историю</span></button>
+          <span class="scroll-hint">Листайте, чтобы рассмотреть</span><span class="scene-caption">Прошутто · FARO</span>
         </div>
         <div class="progress" aria-hidden="true"><span></span></div>
-        <div id="loader" role="status"><span>Разогреваем печь</span><div class="loading-line"><i></i></div></div>
-        <div id="error" role="alert" hidden><h2>Не удалось открыть сцену</h2><p>Обновите страницу в браузере с поддержкой WebGL 2.</p><button type="button" onclick="location.reload()">Попробовать снова</button></div>
+        <div id="loader" role="status"><span class="loader-wordmark">FARO</span><span>Разогреваем печь</span><div class="loading-line"><i></i></div></div>
+        <p id="error" role="status" hidden>Показали фотографию: 3D-сцена недоступна в этом браузере.</p>
       </div>
     </section>
-    <section id="story-end">
-      <p class="eyebrow">СДЕЛАНО СО ВКУСОМ.</p>
-      <h2>Меньше лишнего.<br><em>Больше настоящего.</em></h2>
-      <p>Прошутто, свежая руккола и золотистый бортик.<br>Каждая деталь заслуживает внимания.</p>
-      <button id="replay" class="replay" type="button">Ещё один взгляд <span aria-hidden="true">↗</span></button>
+    <section id="menu" class="menu-section" aria-labelledby="menu-title">
+      <div class="menu-heading"><h2 id="menu-title"><span class="text-line"><span>Каждому —</span></span><span class="text-line"><span><em>своя пицца.</em></span></span></h2><p>Выберите одну. А лучше — две,<br>чтобы попробовать друг у друга.</p></div>
+      <div class="menu-layout">
+        <figure class="signature"><div class="signature-image"><img src="media/pizza-studio.png" width="1600" height="1600" alt="Пицца Прошутто: золотистый бортик, прошутто, грибы и свежая руккола" loading="lazy"></div><figcaption><div><strong>Прошутто</strong><span>Та самая, из первого экрана.</span></div><button class="signature-add" type="button" data-add="prosciutto" aria-label="Добавить Прошутто в заказ">Попробовать <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button></figcaption></figure>
+        <div class="menu-selection">
+          <div class="menu-filters" role="group" aria-label="Фильтр меню"><button type="button" data-filter="all" aria-pressed="true" aria-controls="menu-list">Все пиццы</button><button type="button" data-filter="meat" aria-pressed="false" aria-controls="menu-list">С мясом</button><button type="button" data-filter="vegetarian" aria-pressed="false" aria-controls="menu-list">Без мяса</button></div>
+          <ul id="menu-list" class="menu-list">
+            <li class="dish" data-dish="prosciutto" data-category="meat"><div class="dish-copy"><h3>Прошутто</h3><p>Прошутто, руккола, моцарелла,<br>шампиньоны, томатный соус</p></div><span class="dish-price">890 ₽</span><button class="dish-add" type="button" data-add="prosciutto" aria-label="Добавить Прошутто в заказ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button></li>
+            <li class="dish" data-dish="pepperoni" data-category="meat"><div class="dish-copy"><h3>Пепперони</h3><p>Пепперони, моцарелла,<br>томатный соус, свежий базилик</p></div><span class="dish-price">790 ₽</span><button class="dish-add" type="button" data-add="pepperoni" aria-label="Добавить Пепперони в заказ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button></li>
+            <li class="dish" data-dish="margherita" data-category="vegetarian"><div class="dish-copy"><h3>Маргарита</h3><p>Моцарелла, томаты,<br>свежий базилик, оливковое масло</p></div><span class="dish-price">690 ₽</span><button class="dish-add" type="button" data-add="margherita" aria-label="Добавить Маргариту в заказ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button></li>
+            <li class="dish" data-dish="four-cheese" data-category="vegetarian"><div class="dish-copy"><h3>Четыре сыра</h3><p>Моцарелла, горгонзола,<br>пармезан, сливочный сыр</p></div><span class="dish-price">890 ₽</span><button class="dish-add" type="button" data-add="four-cheese" aria-label="Добавить Четыре сыра в заказ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button></li>
+            <li class="dish" data-dish="mushroom" data-category="vegetarian"><div class="dish-copy"><h3>Грибы и трюфель</h3><p>Шампиньоны, моцарелла,<br>сливочный соус, трюфельное масло</p></div><span class="dish-price">850 ₽</span><button class="dish-add" type="button" data-add="mushroom" aria-label="Добавить Грибы и трюфель в заказ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button></li>
+            <li class="dish" data-dish="salsiccia" data-category="meat"><div class="dish-copy"><h3>Сальсичча</h3><p>Пряная колбаска, красный лук,<br>моцарелла, томатный соус</p></div><span class="dish-price">890 ₽</span><button class="dish-add" type="button" data-add="salsiccia" aria-label="Добавить Сальсиччу в заказ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button></li>
+          </ul>
+          <p class="menu-note">Демонстрационное меню. Состав и цены — пример.</p><noscript><p>Для выбора пиццы в заказ включите JavaScript.</p></noscript>
+        </div>
+      </div>
     </section>
+    <section id="about" class="about-section" aria-labelledby="about-title"><div class="about-visual"><img src="media/pizza-studio.png" width="1600" height="1600" alt="Пицца для общего стола" loading="lazy"><span class="table-note">Поставить в центр.<br>Разделить на всех.</span></div><div class="about-copy"><h2 id="about-title">Пицца посередине.<br><em>Разговор —<br>без конца.</em></h2><p>Возьмите две разные пиццы. Поставьте на стол, попробуйте по кусочку друг у друга. Ради таких вечеров и есть FARO.</p><p>Здесь важны простые вещи: горячая пицца, хорошая компания и время, которое можно никуда не торопить.</p><a class="text-link" href="#menu">Найти пиццу для компании <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7"/></svg></a></div></section>
+    <section class="closing" aria-labelledby="closing-title"><h2 id="closing-title">Ещё по <em>кусочку?</em></h2><a class="closing-link" href="#menu">Выбрать пиццу <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 20 4M4 4h16v16"/></svg></a><button id="replay" class="replay" type="button">Посмотреть историю ещё раз</button></section>
   </main>
-  <footer><span>FARO — демонстрационный концепт</span><small>3D-модель <a href="https://sketchfab.com/3d-models/pizza-40d50989fec1460f8838b608d999ccd0">Pizza</a> — <a href="https://sketchfab.com/rigsters">Rigsters</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Модель и текстура изменены.</small></footer>
+  <footer><a class="wordmark footer-logo" href="#top">FARO<span>CUCINA DI FUOCO</span></a><div class="footer-concept"><p>Пицца и планы на вечер.</p><small>FARO — вымышленная пиццерия.<br>Презентационная версия сайта.</small></div><div class="footer-credit"><small>3D-модель <a href="https://sketchfab.com/3d-models/pizza-40d50989fec1460f8838b608d999ccd0">Pizza</a> — <a href="https://sketchfab.com/rigsters">Rigsters</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.<br>Модель и текстура изменены.</small></div></footer>
+  <dialog id="cart-dialog" aria-labelledby="cart-title"><div class="cart-head"><h2 id="cart-title">Ваш заказ</h2><button class="icon-button cart-close" type="button" aria-label="Закрыть заказ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/></svg></button></div><div class="cart-body"><div id="cart-empty"><p>Пока пусто.<br><em>Начнём с пиццы?</em></p><a href="#menu" class="text-link" id="cart-to-menu">Открыть меню <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7"/></svg></a></div><ul id="cart-items" aria-label="Выбранные пиццы"></ul></div><div class="cart-summary" hidden><div class="cart-total"><span>Итого</span><strong id="cart-total">0 ₽</strong></div><button id="save-order" type="button">Сохранить мой выбор <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></button><p id="order-feedback" role="status">Демозаказ: без оплаты и отправки в пиццерию.</p></div></dialog>
+  <div id="cart-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
