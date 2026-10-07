@@ -10,6 +10,8 @@ assets/pizza-video/*
 !assets/pizza-video/vendor-build/
 assets/pizza-video/scene-3d/*-proof.png
 assets/pizza-video/scene-3d/*.blend1
+assets/pizza-video/scene-3d/media/menu-*.png
+assets/pizza-video/scene-3d/portfolio-frames/
 assets/pizza-video/scene-3d/fonts/*.ttf
 .impeccable/review/
 *.log

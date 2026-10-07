@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const canvas = document.querySelector('#pizza-canvas');
 const stage = document.querySelector('#stage');
@@ -16,6 +18,10 @@ const floorUniforms = { focus: { value: new THREE.Vector2(3, -1) }, strength: { 
 let renderer, pizza, mm, tour, disposed = false, dirty = true, renderedProgress = -1;
 let sceneVisible = true, focusX, focusZ, sceneObserver;
 let width = 0, height = 0, mobile = false;
+let controls, inspection = false, inspectionTween;
+const inspectDialog = document.querySelector('#inspect-dialog');
+const inspectViewport = document.querySelector('#inspect-viewport');
+let inspectOpener;
 let lastFrame = 0, intervalCount = 0;
 const frameIntervals = [], renderTimes = [];
 const diagnostics = { ready: false, frames: 0, modelBytes: 0, triangles: 0, dpr: 0,
@@ -46,6 +52,7 @@ function pathAt(progress) {
 }
 
 function applyCamera() {
+  if (inspection) return;
   const p = THREE.MathUtils.clamp(motion.progress, 0, 1);
   const [degrees, elevation, baseDistance, offset, aimHeight] = pathAt(p);
   const azimuth = THREE.MathUtils.degToRad(degrees);
@@ -69,6 +76,7 @@ function applyCamera() {
 
 function markDirty() { dirty = true; }
 function draw() {
+  if (inspection && controls?.update()) dirty = true;
   if (disposed || !diagnostics.ready || !dirty || document.hidden || !sceneVisible) return;
   dirty = false;
   const now = performance.now();
@@ -108,9 +116,10 @@ function publishDiagnostics() {
 }
 
 function resize() {
-  width = stage.clientWidth;
-  height = stage.clientHeight;
-  mobile = width < 700;
+  const surface = inspection ? inspectViewport : stage;
+  width = surface.clientWidth;
+  height = surface.clientHeight;
+  mobile = width <= 700;
   const dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 2, Math.sqrt(4300000 / (width*height)));
   renderer.setPixelRatio(Math.max(1, dpr));
   renderer.setSize(width, height, false);
@@ -166,7 +175,7 @@ function setupAnimation() {
       tl.to(element, { autoAlpha: 1, duration: .15 }, at);
       tl.fromTo(element.querySelectorAll('.text-line > span'), { yPercent: 105 },
         { yPercent: 0, duration: .65, stagger: .08, ease: 'power4.out' }, at);
-      tl.fromTo(element.querySelectorAll('p, a'), { y: 12, autoAlpha: 0 },
+    tl.fromTo(element.querySelectorAll('p, a, button'), { y: 12, autoAlpha: 0 },
         { y: 0, autoAlpha: 1, duration: .5, stagger: .05, ease: 'power2.out' }, at + .3);
       if (out !== null) tl.to(element, { autoAlpha: 0, duration: .35, ease: 'power2.in' }, out);
     }
@@ -188,6 +197,42 @@ function setupAnimation() {
       onUpdate: () => window.scrollTo({ top: cursor.y, behavior: 'instant' }),
       onComplete: () => { playButton.querySelector('span').textContent = 'Смотреть историю'; publishDiagnostics(); },
     });
+  });
+  document.querySelector('#inspect-open').addEventListener('click', event => {
+    cancelTour(); inspectOpener = event.currentTarget; inspection = true;
+    inspectDialog.showModal(); document.body.classList.add('inspection-open');
+    inspectViewport.prepend(canvas); controls.connect(canvas); controls.enabled = true;
+    controls.target.set(0,.2,0);
+    camera.position.set(-5.5,8.3,-6.8); resize();
+    camera.position.sub(controls.target).setLength(inspectDistance()).add(controls.target);
+    controls.update(); markDirty();
+    diagnostics.inspection = true; publishDiagnostics();
+  });
+  inspectDialog.addEventListener('close', () => {
+    inspectionTween?.kill(); inspection = false; controls.enabled = false; controls.disconnect(); document.body.classList.remove('inspection-open');
+    stage.prepend(canvas); resize(); applyCamera(); markDirty();
+    diagnostics.inspection = false; publishDiagnostics(); inspectOpener?.focus({preventScroll:true});
+  });
+  document.querySelector('#inspect-close').addEventListener('click', () => inspectDialog.close());
+  function inspectDistance() { return Math.min(30,Math.max(11,7.8/(2*Math.tan(THREE.MathUtils.degToRad(17))*camera.aspect))); }
+  function adjust(action) {
+    inspectionTween?.kill();
+    const sphere = new THREE.Spherical().setFromVector3(camera.position.clone().sub(controls.target));
+    if(action==='left') sphere.theta -= .22;
+    if(action==='right') sphere.theta += .22;
+    if(action==='in') sphere.radius = Math.max(controls.minDistance,sphere.radius*.88);
+    if(action==='out') sphere.radius = Math.min(controls.maxDistance,sphere.radius/ .88);
+    if(action==='reset') { sphere.theta = -2.46; sphere.phi = .75; sphere.radius = inspectDistance(); }
+    const current = new THREE.Spherical().setFromVector3(camera.position.clone().sub(controls.target));
+    const update = () => { camera.position.setFromSpherical(current).add(controls.target); controls.update(); markDirty(); };
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) { current.copy(sphere); update(); }
+    else inspectionTween = gsap.to(current,{radius:sphere.radius,theta:sphere.theta,phi:sphere.phi,duration:.4,ease:'power2.out',onUpdate:update});
+  }
+  controls.addEventListener('start',()=>inspectionTween?.kill());
+  document.querySelectorAll('[data-camera]').forEach(button => button.addEventListener('click',()=>adjust(button.dataset.camera)));
+  inspectDialog.addEventListener('keydown', event => {
+    const action = {ArrowLeft:'left',ArrowRight:'right','+':'in','-':'out',Home:'reset'}[event.key];
+    if(action) {event.preventDefault();adjust(action);}
   });
   window.addEventListener('wheel', cancelTour, { passive: true });
   window.addEventListener('touchstart', cancelTour, { passive: true });
@@ -221,7 +266,7 @@ function setupBackground() {
   capability.addEventListener('change', sync);
   window.addEventListener('resize', sync, { passive: true });
   stage.addEventListener('pointermove', event => {
-    if (!diagnostics.backgroundInteractive || !sceneVisible || !focusX) return;
+    if (!diagnostics.backgroundInteractive || !sceneVisible || !focusX || inspection) return;
     const rect = stage.getBoundingClientRect();
     mouse.set((event.clientX - rect.left) / width * 2 - 1, -(event.clientY - rect.top) / height * 2 + 1);
     raycaster.setFromCamera(mouse, camera);
@@ -243,23 +288,23 @@ async function init() {
     renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = .86;
+    renderer.toneMappingExposure = .9;
     resize();
     const pmrem = new THREE.PMREMGenerator(renderer);
     const environment = new RoomEnvironment();
     const envTarget = pmrem.fromScene(environment, .04);
     scene.environment = envTarget.texture;
-    scene.environmentIntensity = .4;
+    scene.environmentIntensity = .3;
     environment.dispose();
     pmrem.dispose();
-    scene.add(new THREE.HemisphereLight(0xfff1dd, 0x30302d, .7));
-    const key = new THREE.DirectionalLight(0xffedcd, 2);
+    scene.add(new THREE.HemisphereLight(0xfff1dd, 0x30302d, .45));
+    const key = new THREE.DirectionalLight(0xffedcd, 1.8);
     key.position.set(-4, 7, 5);
     scene.add(key);
     const rim = new THREE.DirectionalLight(0xe0e6df, .7);
     rim.position.set(3, 5, -5);
     scene.add(rim);
-    const gltf = await new GLTFLoader().loadAsync('pizza.glb', event => {
+    const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync('pizza-web.glb', event => {
       if (event.total) { diagnostics.modelBytes = event.total; loaderBar.style.transform = `scaleX(${.1 + .8 * event.loaded / event.total})`; }
     });
     pizza = gltf.scene;
@@ -270,14 +315,21 @@ async function init() {
       for (const material of materials) {
         material.side = THREE.FrontSide;
         material.metalness = 0;
-        material.envMapIntensity = .7;
-        material.roughness = .85;
+        material.envMapIntensity = .45;
+        material.roughness = .62;
+        // Subtle relief from the existing surface texture, not invented scan detail.
+        material.bumpMap = material.map; material.bumpScale = .012;
         for (const property of ['map', 'normalMap', 'roughnessMap', 'metalnessMap']) {
           if (material[property]) material[property].anisotropy = Math.min(mobile ? 4 : 8, renderer.capabilities.getMaxAnisotropy());
         }
       }
     });
     scene.add(pizza);
+    controls = new OrbitControls(camera,canvas); controls.enabled=false; controls.disconnect(); controls.enablePan=false;
+    controls.enableDamping=true;controls.dampingFactor=.09;
+    controls.minDistance=6.5;controls.maxDistance=30;
+    controls.minPolarAngle=THREE.MathUtils.degToRad(8);controls.maxPolarAngle=THREE.MathUtils.degToRad(70);
+    controls.addEventListener('change',markDirty);
     const floorMaterial = new THREE.MeshStandardMaterial({ color: 0x171716, roughness: 1, metalness: 0 });
     floorMaterial.onBeforeCompile = shader => {
       shader.uniforms.uFaroFocus = floorUniforms.focus;
@@ -322,6 +374,7 @@ async function init() {
     document.addEventListener('visibilitychange', markDirty);
     canvas.addEventListener('webglcontextlost', event => {
       event.preventDefault(); diagnostics.contextLost = true;
+      if (inspectDialog.open) inspectDialog.close();
       diagnostics.ready = false; mm?.revert(); tour?.kill(); document.body.classList.remove('motion-ready');
       document.body.classList.add('scene-unavailable');
       document.querySelector('#error').hidden = false;
@@ -338,7 +391,7 @@ async function init() {
 window.addEventListener('pagehide', event => {
   // A browser-cached page will resume with its same renderer on back navigation.
   if (event.persisted) return;
-  disposed = true; tour?.kill(); mm?.revert(); sceneObserver?.disconnect(); gsap?.ticker.remove(draw);
+  disposed = true; tour?.kill(); mm?.revert(); controls?.dispose(); sceneObserver?.disconnect(); gsap?.ticker.remove(draw);
   const geometries = new Set(), materials = new Set(), textures = new Set();
   scene.traverse(object => {
     if (object.geometry) geometries.add(object.geometry);

@@ -1,0 +1,39 @@
+name: Publish FARO demo
+on:
+  push:
+    branches: [main]
+    paths: ['assets/pizza-video/scene-3d/**', 'assets/pizza-video/vendor/**', '.github/workflows/pages.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - name: Package the reviewed static site
+        run: |
+          python assets/pizza-video/scene-3d/package_website.py
+          python -m zipfile -e assets/pizza-video/FARO-presentation.zip _site
+          printf '%s' '<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=scene-3d/"><title>FARO</title></head><body><a href="scene-3d/">Открыть FARO</a></body></html>' > _site/index.html
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish static demo
+        id: deployment
+        uses: actions/deploy-pages@v4

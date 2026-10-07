@@ -26,3 +26,17 @@ Real-ESRGAN: BSD 3-Clause, https://github.com/xinntao/Real-ESRGAN/blob/master/LI
 - Golos Text: Google Fonts / Paratype, https://github.com/google/fonts/tree/main/ofl/golostext
 - Both use the SIL Open Font License 1.1. The original notices are preserved as `fonts/literata-OFL.txt` and `fonts/golostext-OFL.txt`.
 - The self-hosted WOFF2 files are locally converted Latin/Cyrillic subsets, including Russian punctuation and the rouble sign. Preserve the OFL notices when distributing them.
+
+## Browser compression and presentation derivatives
+
+`pizza-web.glb` uses Meshopt geometry compression and WebP encoding of the existing maps, without resizing their pixel dimensions. Meshoptimizer is MIT licensed; the complete notice is in `MESHOPTIMIZER-LICENSE.txt`. The Three.js MIT notice is in `THREE-LICENSE.txt`. These changes do not produce a higher-resolution original scan.
+
+The WebP poster and `media/menu-prosciutto.webp` (now used only in the preparation gallery) are local derivatives of the modified Rigsters scan; the same CC BY 4.0 credit and modification notice apply. `media/FARO-teaser.mp4` is a local Blender EEVEE render: 192 frames, 1600×900, 24fps, static pizza and moving camera, encoded H.264 with FFmpeg. Model credit appears inside the video.
+
+## Menu and preparation images
+
+The current menu uses six matching AI-generated illustrations in `media/menu-session/`, produced with the built-in OpenAI image generator, without API CLI or paid third-party subscriptions. The owner's selected pepperoni image was the master reference; all five other items preserve its camera/light/crust composition and vary toppings. Exact prompts and origin are preserved in `prompts.json`, PNG metadata and WebP sidecars. These illustrate fictional dishes, rather than documenting a real restaurant or the physical scanned model. The owner-selected original remains unchanged.
+
+Current preparation photographs use the free Unsplash License: Cohen Berg (dough) and Adhitya Sibikumar (oven). Exact URLs, authors, license links and modifications are recorded in `photo-info.json` and visitor-facing `credits.html`.
+
+Retired mixed menu source notices remain in `photo-info.json` with `active:false`: Ivan Torres (margherita), ABHISHEK HAJARE (mushroom), Shoeib Abolhassani (sausage), under the Unsplash License; www.snack-nieuws.nl (four cheeses), CC BY 2.0 via Wikimedia Commons. Unused converted derivatives have been removed; cached stock originals and the owner's selected original remain intact. All active images and runtime assets are self-hosted during use.

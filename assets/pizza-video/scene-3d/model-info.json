@@ -25,5 +25,13 @@
     ]
   },
   "normalizationScale": 11.178218312416918,
-  "triangles": 49964
+  "triangles": 49964,
+  "browserExport": {
+    "file": "pizza-web.glb",
+    "bytes": 3552568,
+    "originalBytes": 10502924,
+    "geometryCompression": "Meshopt",
+    "textureEncoding": "WebP quality 92, original dimensions preserved",
+    "originalDiffuseIsNative4K": false
+  }
 }
